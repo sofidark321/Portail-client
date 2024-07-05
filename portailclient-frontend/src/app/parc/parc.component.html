@@ -1,0 +1,26 @@
+<!-- parc.component.html -->
+<div>
+  <h2>Gestion des Parcs</h2>
+
+  <form (ngSubmit)="editMode ? updateParc() : createParc()">
+    <label>Nom:</label>
+    <input [(ngModel)]="parc.nom" name="nom" required>
+
+    <label>Localisation:</label>
+    <input [(ngModel)]="parc.localisation" name="localisation" required>
+
+    <label>Superficie:</label>
+    <input [(ngModel)]="parc.superficie" name="superficie" type="number" required>
+
+    <button type="submit">{{ editMode ? 'Mettre à jour' : 'Créer' }}</button>
+    <button type="button" (click)="clear()">Annuler</button>
+  </form>
+
+  <ul>
+    <li *ngFor="let parc of parcs">
+      {{ parc.nom }} - {{ parc.localisation }} - {{ parc.superficie }}
+      <button (click)="editParc(parc)">Modifier</button>
+      <button (click)="deleteParc(parc.id)">Supprimer</button>
+    </li>
+  </ul>
+</div>

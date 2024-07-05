@@ -1,0 +1,25 @@
+<div>
+  <h2>Gestion des Navires</h2>
+
+  <form (ngSubmit)="editMode ? updateNavire() : createNavire()">
+    <label>Nom:</label>
+    <input [(ngModel)]="navire.name" name="nom" required>
+
+    <label>Type:</label>
+    <input [(ngModel)]="navire.type" name="type" required>
+
+    <label>Tonnage:</label>
+    <input [(ngModel)]="navire.capacity" name="tonnage" type="number" required>
+
+    <button type="submit">{{ editMode ? 'Mettre à jour' : 'Créer' }}</button>
+    <button type="button" (click)="clear()">Annuler</button>
+  </form>
+
+  <ul>
+    <li *ngFor="let navire of navires">
+      {{ navire.name }} - {{ navire.type }} - {{ navire.capacity }}
+      <button (click)="editNavire(navire)">Modifier</button>
+      <button (click)="deleteNavire(navire.id)">Supprimer</button>
+    </li>
+  </ul>
+</div>
