@@ -11,7 +11,6 @@ import java.util.Optional;
 
 
 @RestController
-@CrossOrigin(origins = "*")
 @RequestMapping("/navires")
 public class NavireController {
 
